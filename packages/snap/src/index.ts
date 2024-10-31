@@ -1,36 +1,52 @@
-import type { OnRpcRequestHandler } from '@metamask/snaps-sdk';
-import { panel, text } from '@metamask/snaps-sdk';
+import type {
+  OnHomePageHandler,
+  OnTransactionHandler,
+} from '@metamask/snaps-sdk';
+import { heading, panel, SeverityLevel, text } from '@metamask/snaps-sdk';
 
-/**
- * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
- *
- * @param args - The request handler args as object.
- * @param args.origin - The origin of the request, e.g., the website that
- * invoked the snap.
- * @param args.request - A validated JSON-RPC request object.
- * @returns The result of `snap_dialog`.
- * @throws If the request method is not valid for this snap.
- */
-export const onRpcRequest: OnRpcRequestHandler = async ({
-  origin,
-  request,
+import { fetchTransactionRisk, RiskLevel } from './apis/risk';
+import { FetchError, GuardError } from './components/error';
+import { RiskResult } from './components/risk-result';
+
+export const onHomePage: OnHomePageHandler = async () => {
+  return {
+    content: panel([
+      heading('ZAN Snap'),
+      text('Powered by ZAN.top'),
+    ]),
+  };
+};
+
+export const onTransaction: OnTransactionHandler = async ({
+  transaction,
+  chainId,
+  transactionOrigin,
 }) => {
-  switch (request.method) {
-    case 'hello':
-      return snap.request({
-        method: 'snap_dialog',
-        params: {
-          type: 'confirmation',
-          content: panel([
-            text(`Hello, **${origin}**!`),
-            text('This custom confirmation is just for display purposes.'),
-            text(
-              'But you can edit the snap source code to make it do something, if you want to!',
-            ),
-          ]),
-        },
-      });
-    default:
-      throw new Error('Method not found.');
+  const locale = await snap.request({ method: 'snap_getLocale' });
+
+  try {
+    const risk = await fetchTransactionRisk({
+      chainId,
+      transaction,
+      transactionOrigin,
+      locale,
+    });
+
+    if (risk.success && risk.data) {
+      return risk.data.level === RiskLevel.CRITICAL
+        ? {
+          severity: SeverityLevel.Critical,
+          content: RiskResult(risk.data),
+        }
+        : { content: RiskResult(risk.data) };
+    }
+
+    return {
+      content: GuardError(risk.error),
+    };
+  } catch (error: any) {
+    return {
+      content: FetchError(error),
+    };
   }
 };
