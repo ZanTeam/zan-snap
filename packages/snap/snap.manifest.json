@@ -1,26 +1,33 @@
 {
   "version": "0.1.0",
   "description": "An example Snap written in TypeScript.",
-  "proposedName": "TypeScript Example",
+  "proposedName": "ZAN Guard",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "https://github.com/ZanTeam/zan-snap.git"
   },
   "source": {
-    "shasum": "TwVBeJ/PL4uARBEFZmgJukYd3XWyTbilkOPhtdg+GvU=",
+    "shasum": "/FbJ35CSG/lB35hx8pEAnA4mduvA9w8DavaxiiUg39c=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
         "packageName": "snap",
+        "iconPath": "images/zan.svg",
         "registry": "https://registry.npmjs.org/"
       }
     }
   },
   "initialPermissions": {
     "snap_dialog": {},
+    "endowment:network-access": {},
+    "endowment:page-home": {},
+    "snap_getLocale": {},
+    "endowment:transaction-insight": {
+      "allowTransactionOrigin": true
+    },
     "endowment:rpc": {
       "dapps": true,
-      "snaps": false
+      "snaps": true
     }
   },
   "manifestVersion": "0.1"
