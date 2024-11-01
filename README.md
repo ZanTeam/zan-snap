@@ -11,6 +11,7 @@ Based [ZAN KYT](https://zan.top/home/know-your-transaction) service, ZAN Snap pr
 ## Repo
 
 This repository is a monorepo that contains the following packages:
+
 - `snap` - The snap package that contains the zan snap code.
 - `site` - For development and testing.
 
