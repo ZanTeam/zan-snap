@@ -10,10 +10,7 @@ import { RiskResult } from './components/risk-result';
 
 export const onHomePage: OnHomePageHandler = async () => {
   return {
-    content: panel([
-      heading('ZAN Snap'),
-      text('Powered by ZAN.top'),
-    ]),
+    content: panel([heading('ZAN Snap'), text('Powered by ZAN.top')]),
   };
 };
 
@@ -35,9 +32,9 @@ export const onTransaction: OnTransactionHandler = async ({
     if (risk.success && risk.data) {
       return risk.data.level === RiskLevel.CRITICAL
         ? {
-          severity: SeverityLevel.Critical,
-          content: RiskResult(risk.data),
-        }
+            severity: SeverityLevel.Critical,
+            content: RiskResult(risk.data),
+          }
         : { content: RiskResult(risk.data) };
     }
 
