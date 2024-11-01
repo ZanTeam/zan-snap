@@ -51,12 +51,6 @@ export async function fetchTransactionRisk(
   args: FetchTransactionRiskParams,
 ): Promise<RiskResult> {
   const { chainId, transaction, transactionOrigin, locale } = args;
-  console.log(
-    'fetch_transaction_risk',
-    chainId,
-    transaction,
-    transactionOrigin,
-  );
 
   const response = await fetch(`https://zan.top/bff/snap/risk`, {
     method: 'POST',
