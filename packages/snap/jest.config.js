@@ -3,4 +3,5 @@ module.exports = {
   transform: {
     '^.+\\.(t|j)sx?$': 'ts-jest',
   },
+  modulePathIgnorePatterns: ['__tests__/mocks/*'],
 };

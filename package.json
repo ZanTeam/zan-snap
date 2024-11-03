@@ -1,15 +1,15 @@
 {
-  "name": "root",
+  "name": "zan-snap-monorepo",
   "version": "0.1.0",
   "private": true,
   "description": "",
-  "homepage": "https://github.com/MetaMask/template-snap-monorepo#readme",
+  "homepage": "https://github.com/ZanTeam/zan-snap#readme",
   "bugs": {
-    "url": "https://github.com/MetaMask/template-snap-monorepo/issues"
+    "url": "https://github.com/ZanTeam/zan-snap/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "git+https://github.com/ZanTeam/zan-snap.git"
   },
   "license": "(MIT-0 OR Apache-2.0)",
   "author": "",
@@ -29,7 +29,7 @@
     "@lavamoat/allow-scripts": "^3.0.0",
     "@lavamoat/preinstall-always-fail": "^2.0.0",
     "@metamask/eslint-config": "^12.2.0",
-    "@metamask/eslint-config-jest": "^14.0.0",
+    "@metamask/eslint-config-jest": "^12.1.0",
     "@metamask/eslint-config-nodejs": "^12.1.0",
     "@metamask/eslint-config-typescript": "^12.1.0",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
