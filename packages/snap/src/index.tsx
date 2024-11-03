@@ -1,18 +1,9 @@
-import type {
-  OnHomePageHandler,
-  OnTransactionHandler,
-} from '@metamask/snaps-sdk';
-import { heading, panel, SeverityLevel, text } from '@metamask/snaps-sdk';
+import type { OnTransactionHandler } from '@metamask/snaps-sdk';
+import { SeverityLevel } from '@metamask/snaps-sdk';
 
 import { fetchTransactionRisk, RiskLevel } from './apis/risk';
 import { FetchError, GuardError } from './components/error';
 import { RiskResult } from './components/risk-result';
-
-export const onHomePage: OnHomePageHandler = async () => {
-  return {
-    content: panel([heading('ZAN Snap'), text('Powered by ZAN.top')]),
-  };
-};
 
 export const onTransaction: OnTransactionHandler = async ({
   transaction,

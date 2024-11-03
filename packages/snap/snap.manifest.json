@@ -1,13 +1,13 @@
 {
   "version": "0.1.0",
-  "description": "An example Snap written in TypeScript.",
+  "description": "Protect your crypto with transaction insights, powered by ZAN.",
   "proposedName": "ZAN Guard",
   "repository": {
     "type": "git",
     "url": "https://github.com/ZanTeam/zan-snap.git"
   },
   "source": {
-    "shasum": "X4izAApdHOpq+FTWJu+w+ckl2udgcfOaQFC0TEbWv5Q=",
+    "shasum": "Wjc++wmkzr0x/qFgdC6Lu631oTRph7hK2WGF4ydNDuY=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -20,14 +20,9 @@
   "initialPermissions": {
     "snap_dialog": {},
     "endowment:network-access": {},
-    "endowment:page-home": {},
     "snap_getLocale": {},
     "endowment:transaction-insight": {
       "allowTransactionOrigin": true
-    },
-    "endowment:rpc": {
-      "dapps": true,
-      "snaps": true
     }
   },
   "manifestVersion": "0.1"

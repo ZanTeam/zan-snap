@@ -35,7 +35,7 @@ export type RiskResultError = {
   message: string;
 };
 
-type RiskResult = {
+export type RiskResult = {
   success: boolean;
   data?: RiskResultData;
   error?: RiskResultError;
