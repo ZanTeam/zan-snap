@@ -1,8 +1,7 @@
-import React from 'react';
 import { expect } from '@jest/globals';
 import { Box, Heading, Link, Text } from '@metamask/snaps-sdk/jsx';
-import { FetchError, GuardError } from '../error';
 
+import { FetchError, GuardError } from '../error';
 import {
   riskErrorResult,
   serviceErrorResult,
@@ -18,6 +17,7 @@ describe('Error components', () => {
     } catch (error: any) {
       const rendered = FetchError(error);
 
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(rendered).toStrictEqual(
         <Box>
           <Heading>Fetch error</Heading>

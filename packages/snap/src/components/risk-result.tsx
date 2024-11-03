@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Divider, Heading, Text } from '@metamask/snaps-sdk/jsx';
 
 import { RiskLevel, type RiskResultData } from '../apis/risk';

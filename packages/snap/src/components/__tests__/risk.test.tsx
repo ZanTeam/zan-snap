@@ -1,20 +1,15 @@
-import React from 'react';
 import { expect } from '@jest/globals';
 import { Box, Divider, Heading, Text } from '@metamask/snaps-sdk/jsx';
-import { LEVEL_TEXT, RiskResult } from '../risk-result';
 
+import { RiskLevel } from '../../apis/risk';
+import { LEVEL_TEXT, RiskResult } from '../risk-result';
 import {
   criticalRiskResult,
   criticalRiskResultWithDetail,
   criticalRiskResultWithDetailAndMoreLink,
   criticalRiskResultWithoutMoreLink,
   highRiskResult,
-  riskErrorResult,
-  serviceErrorResult,
-  unknownErrorResult,
-  unsupportedChainErrorResult,
 } from './mocks/mock-risk-result';
-import { RiskLevel } from '../../apis/risk';
 
 describe('Risk components', () => {
   it('should render Risk components', () => {
